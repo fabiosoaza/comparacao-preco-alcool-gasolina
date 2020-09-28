@@ -7,7 +7,7 @@ void main() {
     var precoAlcool = 3.69;
     var calculadora = CalculadoraCombustivel(precoAlcool, precoGasolina);
     var valor = calculadora.calcular();
-    var valorEsperado = 0.84;
+    var valorEsperado = 0.8444;
 
     expect(valor, valorEsperado);
   });
@@ -16,8 +16,6 @@ void main() {
     var precoGasolina = 4.37;
     var precoAlcool = 3.69;
     var calculadora = CalculadoraCombustivel(precoAlcool, precoGasolina);
-    var valor = calculadora.calcular();
-
     expect(calculadora.alcoolEMaisVantajoso(), false);
   });
 

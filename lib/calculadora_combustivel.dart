@@ -12,7 +12,7 @@ class CalculadoraCombustivel{
 
   double calcular(){
     var calculo = precoAlcool/precoGasolina;
-    var valorArredondado = num.parse(calculo.toStringAsFixed(2)).toDouble();
+    var valorArredondado = num.parse(calculo.toStringAsFixed(4)).toDouble();
     return valorArredondado;
   }
 

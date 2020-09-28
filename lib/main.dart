@@ -61,7 +61,8 @@ class _HomeState extends State<Home> {
   String formatarPorcentagem(double calculo) {
    var porcentagem = calculo * 100;
    RegExp regex = RegExp(r"([.]*0)(?!.*\d)");
-   return num.parse(porcentagem.toStringAsFixed(2)).toDouble().toString().replaceAll(regex, "");
+   var valorFormatado = num.parse(porcentagem.toStringAsFixed(2)).toDouble().toString().replaceAll(regex, "");
+   return valorFormatado;
   }
 
   double precoConvertido(String preco){

@@ -20,7 +20,30 @@ void main() {
     await tester.pump();
 
     var combustivelMaisVantajoso = "Gasolina";
-    var porcentagemFormatada = "0.84";
+    var porcentagemFormatada = "84.44";
+
+    var mensagemEsperada = "Melhor abastecer com ${combustivelMaisVantajoso} pois o preço do álcool está custando ${porcentagemFormatada}% do valor da gasolina.";
+
+
+    expect(find.text(mensagemEsperada), findsOneWidget);
+  });
+
+  testWidgets('Preço do álcool deve ser mais vantajoso', (WidgetTester tester) async {
+    await tester.pumpWidget(MyApp());
+
+    expect(find.text('Preço Gasolina(R\$)'), findsOneWidget);
+    expect(find.text('Preço Álcool(R\$)'), findsOneWidget);
+    expect(find.text('Informe o preço do Álcool e da Gasolina para comparação.'), findsOneWidget);
+
+    await tester.enterText(find.widgetWithText(TextField, 'Preço Gasolina(R\$)'), '4.37');
+    await tester.enterText(find.widgetWithText(TextField, 'Preço Álcool(R\$)'), '2.00');
+
+
+    await tester.tap(find.byType(RaisedButton));
+    await tester.pump();
+
+    var combustivelMaisVantajoso = "Álcool";
+    var porcentagemFormatada = "45.77";
 
     var mensagemEsperada = "Melhor abastecer com ${combustivelMaisVantajoso} pois o preço do álcool está custando ${porcentagemFormatada}% do valor da gasolina.";
 
